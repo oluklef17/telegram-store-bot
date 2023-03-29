@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='style.css')}}"
+    />
+    <title>{% block title %}Home{% endblock %}</title>
+    <style>
+        body{
+            background:linear-gradient(rgba(3, 27, 41, 0.7), rgba(134, 133, 133, 0.7)), url('/static/ai.jpg');
+            min-height:100vh; background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+        }
+
+    </style>
+  </head>
+  <body>
+    
+
+    <div class="board">{% block content %}
+      {% endblock %}
+      <form action="{{url_for('views.createuser')}}" method="post">
+        <label for="email">Enter activation email:</label>
+        <br>
+        <input type="text" name="email" placeholder="xyz@gmail.com" class="form">
+        <br>
+        <br>
+        <br>
+        <label for="platform">Choose platform</label>
+        <br>
+        <select name="platform" id="platform" class="form">
+          <option value="MT4">MT4</option>
+          <option value="MT5">MT5</option>
+        </select>
+        <br>
+        <br>
+        <br>
+        <label for="terminals">Enter no of terminals:</label>
+        <br>
+        <input type="text" name="terminals" placeholder="1" class="form">
+        <br>
+        <br>
+        <br>
+        <label for="expiry">Enter expiry date:</label>
+        <br>
+        <input type="date" name="expiry" placeholder="1970.01.01" class="form">
+        <br>
+        <br>
+        <br>
+        <button type="submit" onclick=""><a href="{{url_for('views.createuser')}}" ></a>Generate File</button>
+     </form>
+    </div>
+    <br>
+    <div id="license">
+      <a href="TgToMT4.ex4">{{license}}</a>
+    </div>
+    
+    
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js') }}"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+* {
+  font-family: "Raleway", sans-serif;
+}
+body {
+  margin: 0;
+  min-height: 100%;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c1c;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.prettyForm {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.7));
+}
+.formImage {
+  padding: 0px 20px;
+  min-width: 400px;
+  max-width: 400px;
+  height: 100%;
+  background-image: url("https://picsum.photos/400/600");
+  border-radius: 10px 0 0 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+form {
+  border-radius: 0 10px 10px 0;
+  background-color: #1c1c1c;
+  color:aliceblue;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+form input {
+  padding: 8px 0px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  color: white;
+  border: transparent;
+  border-bottom: #ffffff1f solid 1px;
+  font-size: 18px;
+  width: 100%;
+  position: relative;
+  background-size: calc(200% + 3px) calc(100% + 3px);
+  background-image: linear-gradient(to left, #1c1c1c 50%, #420404 50%);
+  background-position: right;
+  transition: background-position 0.3s ease-in-out;
+}
+
+form > h3 {
+  color: white;
+}
+
+form .inputGroup {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+form input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+form input[type="submit"] {
+  background-color: #55c2a1;
+  cursor: pointer;
+}
+
+.prettyForm:has(input:invalid:not(:focus)) {
+  animation: shake 0.65s;
+}
+.inputGroup:has(:invalid:not(:focus)) input {
+  background-position: left;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 900px) {
+  .prettyForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .formImage {
+    width:100%;
+    height:100px;
+    border-radius: 10px 10px 0 0;
+  background-image: url("https://picsum.photos/400/100");
+  }
+  form {
+    padding-top:10px;
+    border-radius: 0 0 10px 10px;
+    width: -webkit-fill-available;
+  }
+}
